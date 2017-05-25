@@ -1,0 +1,15 @@
+create or replace function findSuma (N in number)
+return varchar2
+is
+suma float :=0;
+mostrar varchar2(4000);
+begin
+for I in 1..N loop
+if (mod(I,3)=0 or mod (I,5)=0) then
+    mostrar:= mostrar || I || ' ';
+    suma:=suma + I;
+end if;
+end loop;
+return (suma);
+dbms_output.put_line(suma);
+end;
